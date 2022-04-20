@@ -8,6 +8,7 @@ defmodule MessengerWeb.Router do
     plug :put_root_layout, {MessengerWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug MessengerWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
@@ -18,6 +19,10 @@ defmodule MessengerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/home", MessengerController, :home
+    get "/home/:username", MessengerController, :profile
+
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
