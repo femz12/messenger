@@ -23,6 +23,7 @@ defmodule MessengerWeb.Router do
     get "/home/:username", MessengerController, :profile
 
     resources "/users", UserController
+    resources "/products", ProductController
   end
 
   # Other scopes may use custom stacks.

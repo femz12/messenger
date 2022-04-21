@@ -3,8 +3,10 @@ defmodule MessengerWeb.MessengerController do
 
   action_fallback MessengerWeb.FallbackController
 
-  def home(conn, params) when params == :ok do
-      json(conn, %{"ok" => "done"})
+  def home(conn, _params) do
+      # json(conn, %{"ok" => "done"})
+
+      conn |> render("home.html")
   end
 
   def profile(conn, %{"username" => username}) do
