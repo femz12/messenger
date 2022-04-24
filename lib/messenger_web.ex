@@ -31,7 +31,8 @@ defmodule MessengerWeb do
     quote do
       use Phoenix.View,
         root: "lib/messenger_web/templates",
-        namespace: MessengerWeb
+        namespace: MessengerWeb,
+        pattern: "**/*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
